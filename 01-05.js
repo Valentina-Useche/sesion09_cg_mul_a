@@ -43,7 +43,8 @@ function init() {
     for(i=0; i<5;i++){
 
     Cubo.push(cubo(4, 4, 4, 0x5AE144, 'Standard', false));
-    Cubo[i].position.set(0, i*4, 0);
+    //Cubo[i].position.set(0, i*4, 0);
+    Cubo[i].translate3d(0,i*5,0);
 
     }
     
