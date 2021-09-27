@@ -4,6 +4,7 @@
 function cubo(x, y, z, color, material, alambrado) {
     // create a cube
     var cubeGeometry = new THREE.BoxGeometry(x, y, z);
+    var cubeMaterial;
     switch(material){
 	case 'Basic': cubeMaterial = new THREE.MeshBasicMaterial({color: color, wireframe: alambrado});
  		break;
@@ -37,14 +38,16 @@ function init() {
 
     //Definir un arreglo unidimensional
     Cubo=[];
+  
+    //Generar 5 cubos
+    for(i=0; i<5;i++){
 
-    Cubo.push(cubo(4, 4, 4, 0xFF0000, 'Basic', false));
-    Cubo.push(cubo(4, 4, 4, 0xFF0000, 'Standard', false));
+    Cubo.push(cubo(4, 4, 4, 0x5AE144, 'Standard', false));
+    Cubo[i].position.set(0, i*4, 0);
 
-    Cubo[0].position.set(-4, 9, 0);
-    Cubo[1].position.set(-4, 18, 0);
-
-    // create Luz
+    }
+    
+    // create light
     light= new THREE.PointLight(0xFFFF00);
 
     light.position.set(-10, 5, 10);
